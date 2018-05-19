@@ -9,25 +9,55 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
 
+public class MainActivity extends YouTubeBaseActivity{
+
+    //YouTubeBaseActivity obj=new YouTubeBaseActivity();
+    private YouTubePlayerView youtubeplayerview;
+    private YouTubePlayer.OnInitializedListener onitializedlistener;
+    Button b;
+    youtube1 obj=new youtube1();
     private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //test
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("Game Mania");
+        //setSupportActionBar(mToolbar);
+        //getSupportActionBar().setTitle("Game Mania");
 
+        youtubeplayerview =(YouTubePlayerView) findViewById(R.id.ytube_view);
+        onitializedlistener = new YouTubePlayer.OnInitializedListener() {
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+
+                youTubePlayer.loadVideo("6ZfuNTqbHE8");
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+
+            }
+        };
+
+        b=(Button)findViewById(R.id.button1);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                youtubeplayerview.initialize("AIzaSyCyDOb8jshpDSAWPWDQBU8nxIUQuXS5tuM", onitializedlistener);
+            }
+        });
 
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
