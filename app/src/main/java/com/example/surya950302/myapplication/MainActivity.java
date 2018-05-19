@@ -22,7 +22,7 @@ public class MainActivity extends YouTubeBaseActivity{
     private YouTubePlayerView youtubeplayerview;
     private YouTubePlayer.OnInitializedListener onitializedlistener;
     Button b;
-    youtube1 obj=new youtube1();
+    //youtube1 obj=new youtube1();
     private Toolbar mToolbar;
 
     @Override
