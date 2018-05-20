@@ -18,24 +18,25 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 public class MainActivity extends YouTubeBaseActivity{
 
-    //YouTubeBaseActivity obj=new YouTubeBaseActivity();
+    //private AppCompatActivity obj=new AppCompatActivity();
     private YouTubePlayerView youtubeplayerview;
     private YouTubePlayer.OnInitializedListener onitializedlistener;
     Button b;
     //youtube1 obj=new youtube1();
-    private Toolbar mToolbar;
+    //private Toolbar mToolbar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        //mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
         //setSupportActionBar(mToolbar);
         //getSupportActionBar().setTitle("Game Mania");
 
-        youtubeplayerview =(YouTubePlayerView) findViewById(R.id.ytube_view);
+        youtubeplayerview =(YouTubePlayerView) findViewById(R.id.Ytubeview);
         onitializedlistener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
